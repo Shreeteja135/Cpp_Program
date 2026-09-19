@@ -1,49 +1,45 @@
-//Program 5: Class and Object
-//Scenario: Store student details using class and object.
+// Program 6: Constructor and Destructor
+// Scenario: Show automatic object initialization and cleanup.
 
-#include <iostream> /* # - preprocessor directive 
-                        include- evoke the header file 
-                        < > - header file angular brackets 
-                        iostream - input / output stream */
+#include <iostream>      // Header file for input and output operations
+                         /* include - directive used to include header files
+                           <iostream> - header file for input and output operations
+                           < > - opening and closing angle brackets for including header files
+                           ; - semicolon used to terminate statements in C++
+                          */
 
-#include <string>  /* # - preprocessor directive 
-                        include- evoke the header file 
-                        < > - header file angular brackets 
-                        string - string class */
+using namespace std;     /* using - allows us to use names in the std namespace without prefixing them with std::
+                         namespace - a declarative region that provides a scope to the identifiers inside it
+                         std - standard namespace that contains the C++ Standard Library
+                         ; - semicolon used to terminate statements in C++
+                        */
 
-using namespace std; /* using - keyword to access standard namespace 
-                            namespace - scope resolution operator  - means the scope of the identifier is limited to the namespace
-                            std - standard namespace 
-                            ; -b terminate the statement */
+class Demo { // class - keyword used to create a class, Demo - class name, { - opening brace for the class body
+public: // public - access specifier that allows access from outside the class, : - colon used to mark the access section
 
-class Student { /* class-  blueprint for creating objects 
-                    Student - class name 
-                    { - start of class body */
+    Demo() { // Demo() - constructor of the class, () - parentheses used for function parameters, { - opening brace for the function body
+        cout << "Constructor called\n"; /* cout - standard output stream used to display output on the console
+                                         << - insertion operator used to send data to the output stream
+                                          "Constructor called\n" - string literal to be displayed
+                                          \n - newline escape sequence used to move to the next line
+                                          ; - semicolon used to terminate statements in C++ */
+    } // } - closing brace used to define the end of the constructor function
 
-public:   // public access specifier - members declared under this are accessible from outside the class
-    string name; // string - data type for name, name - variable to store student name, ; - terminate the statement
-    int age; // int - data type for age, age - variable to store student age, ; - terminate the statement
+    ~Demo() { // ~Demo() - destructor of the class, destructor runs automatically when the object is destroyed
+        cout << "Destructor called\n"; /* cout - standard output stream used to display output on the console
+                                        << - insertion operator used to send data to the output stream
+                                         "Destructor called\n" - string literal to be displayed
+                                         \n - newline escape sequence used to move to the next line
+                                         ; - semicolon used to terminate statements in C++ */
+    } // } - closing brace used to define the end of the destructor function
+}; // ; - semicolon used after the class definition
 
-    Student(string n = "", int a = 0) : name(n), age(a) {}
-    // Constructor - special member function to initialize objects
-    /* Student - name and age are initialized using member initializer list 
-    ( - opening parenthesis for member initializer list 
-    ) - closing parenthesis for member initializer list
-     string - data type to store sequence of characters
-     n - parameter to store student name
-     int - data type for age
-     a - parameter to store student age
-    {}- to initialize the members */
+int main() { // int - return type of the function, main - special function where execution begins, () - parentheses used for parameters, { - opening brace for the function body
 
-    void show() const { // void - return type of the function, show - function name, const - indicates that the function does not modify any member variables of the class
-        cout << name << " " << age << endl;
-        // cout - standard output stream, << - insertion operator, endl - end line
-    }
-}; // end of class body
+    Demo d; // Demo - class name, d - object of the Demo class, ; - semicolon used to terminate statements in C++
 
-int main() { // int - return type of the function, main - function name, () - indicates that the function does not take any parameters
-    // Create an object of Student class
-    Student s1("Shree", 20);
-    s1.show();// Call the show() function to display student details
-    return 0; // return 0 - indicates successful execution of the program
-}
+    return 0; // return - keyword used to return a value from the function
+              // 0 - value returned to the operating system to indicate successful execution
+              // ; - semicolon used to terminate statements in C++
+} // } - closing brace used to define the end of the main function
+
